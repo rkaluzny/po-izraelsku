@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/media/style.css" />
+    <link
+      rel="shortcut icon"
+      href="/media/images/logo.svg"
+      type="image/x-icon"
+    />
+    <title>{{articel.title}}</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="link-item" href="{% url 'home' %}">HOME</a></li>
+        <li><a class="link-item" href="{% url 'blog_overview' %}">BLOG</a></li>
+        <li class="logo">
+          <a href="{% url 'home' %}"
+            ><h1>
+              Po
+              <img src="/media/images/logo.svg" fetchpriority="high" />
+              Izraelsku
+            </h1></a
+          >
+        </li>
+        <li><a class="link-item" href="../about-us.html">O NAS</a></li>
+        <li><a class="link-item" href="../contact.html">KONTAKT</a></li>
+      </ul>
+    </nav>
+
+    <header
+      style="background-color: rgba(0, 0, 0, 0.7); justify-content: center"
+    >
+      <div class="img-holder">
+        <img
+          class="background-img"
+          src="{{ articel.background_img.url }}"
+          alt=""
+          fetchpriority="high"
+        />
+      </div>
+      <div class="blog-title top-anim">
+        <p>{{articel.title}}</p>
+      </div>
+    </header>
+
+    <section id="blog-text-body">
+      <div class="blog-text-body-content">
+        <div class="social-media-icons">
+          <a
+            href="https://www.facebook.com/profile.php?id=61578940545874"
+            target="_blank"
+            ><img loading="lazy" src="/media/images/facebook.png" alt="" /></a
+          ><a href="https://www.instagram.com/poizraelsku/" target="_blank"
+            ><img loading="lazy" src="/media/images/instagram.png" alt=""
+          /></a>
+        </div>
+
+        {{ articel.text|safe|linebreaks }}
+
+        <p>{{ hitcount.total_hits }}</p>
+
+        <h2 style="margin: auto; padding: 40px" class="blend-in">
+          Więcej wpisów
+        </h2>
+      </div>
+
+      <div class="blog-container" style="margin-bottom: 0px">
+        {% for row in articelSuggestion %}
+        <div class="blog-items blend-in">
+          <div class="blog-img">
+            <div class="center-text">
+              <a href="{% url 'artikel_detail' row.slug %}">czytaj</a>
+            </div>
+            <a href="{% url 'artikel_detail' row.slug %}"
+              ><img
+                class="link-img"
+                loading="lazy"
+                src="{{row.background_img.url}}"
+            /></a>
+          </div>
+          <div class="blog-text">
+            <a href="{% url 'artikel_detail' row.slug %}">{{ row.title }}</a>
+          </div>
+        </div>
+
+        {% empty %}
+        <h2 style="margin-bottom: 15px">Nie znaleziono żadnego Artykułu ):</h2>
+        {% endfor %}
+      </div>
+    </section>
+
+    <script src="/media/animations.js"></script>
+  </body>
+</html>

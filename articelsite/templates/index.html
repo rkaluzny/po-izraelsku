@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Piszemy artykuły na temat izraela, biblii i różne świadectwa."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/media/style.css" />
+    <link
+      rel="shortcut icon"
+      href="/media/images/logo.svg"
+      type="image/x-icon"
+    />
+    <title>Po Izraelsku</title>
+    <script src="/media/script.js" defer></script>
+    <script src="/media/animations.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="link-item" href="{% url 'home' %}">HOME</a></li>
+        <li><a class="link-item" href="{% url 'blog_overview' %}">BLOG</a></li>
+        <li class="logo">
+          <a href="{% url 'home' %}"
+            ><h1>
+              Po
+              <img fetchpriority="high" alt="" src="/media/images/logo.svg" />
+              Izraelsku
+            </h1></a
+          >
+        </li>
+        <li><a class="link-item" href="about-us.html">O NAS</a></li>
+        <li><a class="link-item" href="contact.html">KONTAKT</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <img
+        src="/media/images/background-img.jpg"
+        loading="eager"
+        class="slide-img"
+        fetchpriority="high"
+        alt="Ze względu na Syjon nie będę milczał i ze względu na Jerozolimę nie spocznę"
+      />
+      <img
+        style="left: 60px"
+        class="arrows"
+        onclick="changeBibleVerseBackward()"
+        src="/media/images/arrow-left.svg"
+        alt=""
+      />
+      <div class="bible-verse"></div>
+      <img
+        style="right: 0px"
+        class="arrows"
+        onclick="changeBibleVerseForward()"
+        src="/media/images/arrow-right.svg"
+        alt=""
+      />
+    </header>
+
+    <section id="about">
+      <div class="right-about left-anim">
+        <h1>O NAS</h1>
+        <p style="text-align: justify">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quam
+          harum corporis rerum eius dolorum laboriosam, velit voluptatibus
+          voluptatem repudiandae officia iste sapiente earum. Eaque voluptatem
+          quisquam sequi voluptatum doloribus!
+        </p>
+        <a
+          style="
+            display: flex;
+            text-decoration: none;
+          "
+          href=""
+          ><button>Cztaj więcej &rarr;</button></a
+        >
+      </div>
+      <div class="left-about right-anim">
+        <div class="aboutus-img-container">
+          <img
+            class="about-img"
+            loading="lazy"
+            src="/media/images/background-img.jpg"
+            alt="Jesteśmy Jaqueline i Robin."
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="themes">
+      <h1 class="top-anim">TEMATY O KTÓRYCH PISZEMY</h1>
+      <div class="theme-container">
+        <a href="{% url 'blog_overview_israel' %}" class="theme-pic bottom-anim">
+          <img
+            loading="lazy"
+            src="/media/images/theme-pic-1.jpg"
+            alt="Piszemy o rzeczach związanych z izraelem"
+          />
+          <div>
+            Izrael <br />
+            i język <br />
+            hebrajski
+          </div>
+        </a>
+        <a href="{% url 'blog_overview_bible' %}" class="theme-pic bottom-anim">
+          <img
+            loading="lazy"
+            src="/media/images/theme-pic-2.jpg"
+            alt="Piszemy o rzeczach związanych z biblią"
+          />
+          <div>BIBLIA</div>
+        </a>
+        <a href="{% url 'blog_overview_testimonies' %}" class="theme-pic bottom-anim">
+          <img
+            loading="lazy"
+            src="/media/images/theme-pic-3.jpg"
+            alt="Piszemy o świadectwach"
+          />
+          <div style="font-size: 20px">
+            Budujące <br />
+            świadectwa i prawdziwe <br />
+            historie
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="blog-suggestion">
+      <div class="img-holder">
+        <img
+          alt=""
+          loading="lazy"
+          class="background-img"
+          src="/media/images/background-img.jpg"
+        />
+      </div>
+
+      <h1 class="top-anim blog-h1">BLOG</h1>
+      <div class="blog-container" style="margin-bottom: 0px">
+        {% for row in articelSuggestion %}
+        <div class="blog-items blend-in">
+          <div class="blog-img">
+            <div class="center-text">
+              <a href="{% url 'artikel_detail' row.slug %}">czytaj</a>
+            </div>
+            <a href="{% url 'artikel_detail' row.slug %}"
+              ><img
+                class="link-img"
+                loading="lazy"
+                src="{{row.background_img.url}}"
+                alt="{{row.title}}"
+            /></a>
+          </div>
+          <div class="blog-text">
+            <a href="{% url 'artikel_detail' row.slug %}">{{ row.title }}</a>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </section>
+
+    <form
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      "
+      action="/send-email/"
+      method="post"
+    >
+      {% csrf_token %}
+      <label for="email">Deine E-Mail:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="message">Nachricht:</label><br />
+      <textarea id="message" name="message" required></textarea><br /><br />
+
+      <button type="submit">Absenden</button>
+    </form>
+  </body>
+</html>

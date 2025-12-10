@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/media/style.css" />
+    <link rel="shortcut icon" href="/media/images/logo.svg" type="image/x-icon" />
+    <script src="/media/animations.js" defer></script>
+    <title>Po Izraelsku - Blog</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="link-item" href="{% url 'home' %}">HOME</a></li>
+        <li><a class="link-item" href="{% url 'blog_overview' %}">BLOG</a></li>
+        <li class="logo">
+          <a href="{% url 'home' %}"
+            ><h1>Po <img src="/media/images/logo.svg" fetchpriority="high" /> Izraelsku</h1></a
+          >
+        </li>
+        <li><a class="link-item" href="../about-us.html">O NAS</a></li>
+        <li><a class="link-item" href="../contact.html">KONTAKT</a></li>
+      </ul>
+    </nav>
+
+    <header
+      style="background-color: rgba(0, 0, 0, 0.5); justify-content: center"
+    >
+      <div class="img-holder">
+        <img class="background-img" src="/media/images/background-img.jpg" />
+      </div>
+    </header>
+
+    <section id="blog-overview">
+      <img
+        class="blog-background-logo"
+        src="/media/images/logo.svg"
+        alt=""
+        loading="lazy"
+      />
+      <h1 class="top-anim">Blog Po Izraelsku</h1>
+
+      <div class="blog-container" style="margin-bottom: 0px">
+        {% for row in articelSuggestion %}
+        <div class="blog-items blend-in">
+          <div class="blog-img">
+            <div class="center-text">
+              <a href="{% url 'artikel_detail' row.slug %}">czytaj</a>
+            </div>
+            <a href="{% url 'artikel_detail' row.slug %}"
+              ><img
+                class="link-img"
+                loading="lazy"
+                src="{{row.background_img.url}}"
+            /></a>
+          </div>
+          <div class="blog-text">
+            <a href="{% url 'artikel_detail' row.slug %}">{{ row.title }}</a>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>
