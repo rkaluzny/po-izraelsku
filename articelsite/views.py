@@ -22,19 +22,6 @@ class ArticleDetailView(HitCountDetailView):
 def index(request):
 
     articelSuggestion = Articel.objects.all().order_by("-pub_date")[:2]
-
-    if request.method == "POST":
-        user_email = request.POST.get("email")
-        message = request.POST.get("message")
-
-        send_mail(
-            subject="Poizraelsku kontakt",
-            message=f"E-Mail: {user_email}\n\nNachricht:\n{message}",
-            from_email=f"{user_email}",
-            recipient_list=["robin.jerome.kaluzny@gmail.com"],
-        )
-
-        return HttpResponse("E-Mail wurde gesendet!")
     
     return render(request, 'index.html', {'articelSuggestion': articelSuggestion})
 
@@ -59,3 +46,24 @@ def blogs(request, slug):
     articel = get_object_or_404(Articel, slug=slug)
     articelSuggestion = Articel.objects.exclude(slug=slug).order_by("-pub_date")[:2]
     return render(request, 'blogs.html', {'articel': articel, 'articelSuggestion': articelSuggestion,})
+
+def contact(request):
+    if request.method == "POST":
+        user_email = request.POST.get("email")
+        message = request.POST.get("message")
+        name = request.POST.get("name")
+
+        send_mail(
+            subject="Poizraelsku kontakt",
+            message=f"Person's E-Mail: {user_email}\n\nHis name: {name}\n\nMessage:\n{message}",
+            from_email=f"{user_email}",
+            recipient_list=["robin.jerome.kaluzny@gmail.com", "jaquelinekaluzny.ch@gmail.com"],
+            fail_silently=False,
+        )
+        htmlResponse = '<h1>E-Mail został wysłany do Po Izraelsku Team!</h1> <a href="../contact/">Spowrotem ←</a>'
+    
+        return HttpResponse(htmlResponse)
+    return render(request, 'contact.html')
+
+def aboutUs(request):
+    return render(request, 'about-us.html')

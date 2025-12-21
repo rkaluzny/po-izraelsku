@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/media/style.css" />
+    <link
+      rel="shortcut icon"
+      href="/media/images/logo.svg"
+      type="image/x-icon"
+    />
+    <script src="/media/animations.js" defer></script>
+    <title>Po Izraelsku - Blog</title>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <header
+      style="background-color: rgba(0, 0, 0, 0.5); justify-content: center"
+    >
+      <div class="img-holder">
+        <img class="background-img" src="/media/images/background-img.jpg" />
+      </div>
+    </header>
+
+    <section
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      "
+    >
+      <h1>Skontaktuj nas:</h1>
+      <form action="/email-send/" method="post">
+        {% csrf_token %}
+        <label for="email">Twój E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="name">Twoje imię i nazwisko:</label>
+        <input type="name" id="name" name="name" required />
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">WYŚLIJ</button>
+      </form>
+    </section>
+  </body>
+</html>

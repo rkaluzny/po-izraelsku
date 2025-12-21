@@ -12,23 +12,7 @@
     <title>{{articel.title}}</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a class="link-item" href="{% url 'home' %}">HOME</a></li>
-        <li><a class="link-item" href="{% url 'blog_overview' %}">BLOG</a></li>
-        <li class="logo">
-          <a href="{% url 'home' %}"
-            ><h1>
-              Po
-              <img src="/media/images/logo.svg" fetchpriority="high" />
-              Izraelsku
-            </h1></a
-          >
-        </li>
-        <li><a class="link-item" href="../about-us.html">O NAS</a></li>
-        <li><a class="link-item" href="../contact.html">KONTAKT</a></li>
-      </ul>
-    </nav>
+    {% include "navbar.html" %}
 
     <header
       style="background-color: rgba(0, 0, 0, 0.7); justify-content: center"

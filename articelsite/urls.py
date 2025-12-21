@@ -10,5 +10,7 @@ urlpatterns = [
     path("themes/testimonies/", views.blogOvervieTestimonies, name="blog_overview_testimonies"),
     path("themes/bible/", views.blogOvervieBible, name="blog_overview_bible"),
     path("", views.index, name="home"),
-    path("send-email/", views.index, name="send_email"),
+    path("contact/", views.contact, name="contact"),
+    path("about-us/", views.aboutUs, name="about_us"),
+    path("email-send/", views.contact, name="send_email"),
 ]
