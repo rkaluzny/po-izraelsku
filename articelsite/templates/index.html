@@ -47,23 +47,20 @@
 
     <section id="about">
       <div class="right-about left-anim">
-        <h1>O NAS</h1>
+        <h1>Czym jest Po Izraelsku?</h1>
         <p style="text-align: justify">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quam
-          harum corporis rerum eius dolorum laboriosam, velit voluptatibus
-          voluptatem repudiandae officia iste sapiente earum. Eaque voluptatem
-          quisquam sequi voluptatum doloribus!
+          Zajmujemy się różnymi tematami, które wszystkie związane są z naszą
+          wiarą Jezusa Mesjasza, Biblią oraz Izraelem. Jesteśmy świadomi tego,
+          jak ważny jest lud żydowski w planie Boga oraz wierzymy, że jako
+          chrześcianie jesteśmy silnie związani z Izraelem.
         </p>
         <a
-          style="
-            display: flex;
-            text-decoration: none;
-          "
+          style="display: flex; text-decoration: none"
           href="{% url 'about_us' %}"
           ><button>Cztaj więcej &rarr;</button></a
         >
       </div>
-      <div class="left-about right-anim">
+      <div class="left-about">
         <div class="aboutus-img-container">
           <img
             class="about-img"
@@ -73,12 +70,17 @@
           />
         </div>
       </div>
+
+      <div class="triangle" style="clip-path: polygon(100% 50%, 0% 100%, 100% 100%);"></div>
     </section>
 
     <section id="themes">
       <h1 class="top-anim">TEMATY O KTÓRYCH PISZEMY</h1>
       <div class="theme-container">
-        <a href="{% url 'blog_overview_israel' %}" class="theme-pic bottom-anim">
+        <a
+          href="{% url 'blog_overview_israel' %}"
+          class="theme-pic bottom-anim"
+        >
           <img
             loading="lazy"
             src="/media/images/theme-pic-1.jpg"
@@ -98,7 +100,10 @@
           />
           <div>BIBLIA</div>
         </a>
-        <a href="{% url 'blog_overview_testimonies' %}" class="theme-pic bottom-anim">
+        <a
+          href="{% url 'blog_overview_testimonies' %}"
+          class="theme-pic bottom-anim"
+        >
           <img
             loading="lazy"
             src="/media/images/theme-pic-3.jpg"
