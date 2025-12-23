@@ -33,7 +33,8 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = [
     '.onrender.com',
     '127.0.0.1',
-    'localhost'
+    'localhost',
+    os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 ]
 
 
