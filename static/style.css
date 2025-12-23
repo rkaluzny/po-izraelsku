@@ -1,0 +1,781 @@
+@font-face {
+    font-family: "IM Fell English SC";
+    font-display: swap;
+    src: url("/media/IM_Fell_English_SC/IMFellEnglishSC-Regular.ttf");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    background-color: #f5efe6;
+    min-height: 630px;
+    width: 100%;
+}
+
+form {
+    width: 50%;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 3px black;
+    padding: 15px;
+    gap: 10px;
+    background-color: #cbdceb;
+}
+
+label {
+    font-size: 17px;
+}
+
+input {
+    width: 50%;
+    height: 40px;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #cbdceb;
+    transition: 300ms;
+    box-sizing: border-box;
+    background-color: #f5efe6;
+}
+
+input:focus {
+    border: 2px solid #6d94c5;
+    width: 100%;
+    outline: none;
+}
+
+textarea {
+    border-radius: 10px;
+    resize: none;
+    width: 50%;
+    height: 80px;
+    font-size: 15px;
+    padding-left: 2px;
+    background-color: #f5efe6;
+    border: 2px solid #cbdceb;
+    transition: 300ms;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border: 2px solid #6d94c5;
+    width: 100%;
+    outline: none;
+}
+
+button {
+    max-width: 200px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    color: black;
+    border: 2px solid #7dabe4;
+    transition: 300ms;
+    font-size: 1.2rem;
+    border-radius: 0px;
+    font-family: "IM Fell English SC";
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #7dabe4;
+    color: #f5efe6;
+}
+
+h1 {
+    color: rgb(29, 96, 221);
+    font-weight: 400;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "IM Fell English SC";
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "IM Fell English SC";
+}
+
+nav {
+    background-color: #6d94c5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 100px);
+    max-width: 800px;
+}
+
+nav .logo a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+nav .logo a h1 {
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+}
+
+nav .logo a h1 img {
+    width: 30px;
+    height: auto;
+}
+
+nav li {
+    list-style: none;
+    position: relative;
+}
+
+nav li .link-item {
+    color: #f5efe6;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav li .link-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f5efe6;
+    transition: 400ms;
+}
+
+nav li .link-item:hover::after {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 540px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    color: #f5efe6;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header .slide-img {
+    width: 100vw;
+    height: 540px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4;
+    filter: blur(3px);
+}
+
+header .bible-verse {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header .bible-verse mark::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0.7;
+    filter: blur(3px);
+    background-color: #46362D;
+    z-index: -1;
+    animation: markTextAnim 0.7s forwards ease-in;
+}
+
+header .bible-verse mark {
+    position: relative;
+    z-index: 1;
+    background-color: unset;
+    color: #fff;
+}
+
+header p {
+    font-size: 4vw;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+header .arrows {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header .blog-title {
+    padding: 30px;
+    width: 50%;
+    border: 7px solid rgb(255, 255, 255);
+    border-radius: 3px;
+}
+
+header .blog-title p {
+    font-size: 4vw;
+}
+
+#about {
+    min-height: 630px;
+    width: 100%;
+    background-color: #f5efe6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
+    gap: 1px;
+}
+
+#about p {
+    font-size: 1.2rem;
+}
+
+.right-about {
+    width: 40%;
+    min-width: 300px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    gap: 20px;
+}
+
+.left-about {
+    width: 40%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutus-img-container {
+    width: 250px;
+    height: 300px;
+    background-color: #e8dfca;
+    border-radius: 1000px;
+}
+
+.aboutus-img-container img {
+    width: 250px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    opacity: 0.7;
+    border-radius: 1000px;
+    position: relative;
+    z-index: 8;
+}
+
+#themes {
+    min-height: 630px;
+    width: 100%;
+    background-color: #cbdceb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.theme-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.theme-pic:hover {
+    transform: translate(0, -0.6rem);
+}
+
+.theme-pic {
+    background-color: rgb(0, 0, 0);
+    height: 300px;
+    width: 200px;
+    position: relative;
+    text-align: center;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border-radius: 20px;
+    transition: 0.2s linear;
+}
+
+.theme-pic div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+}
+
+.theme-pic img {
+    width: 200px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+#blog-suggestion {
+    width: 100%;
+    min-height: 630px;
+    background-color: rgba(80, 80, 80, 0.377);
+    color: #f5efe6;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.blog-h1 {
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    margin-top: 40px;
+}
+
+.blog-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.blog-container .blog-items {
+    display: flex;
+    flex-direction: column;
+    width: 490px;
+    height: 500px;
+    max-width: 90%;
+    box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.blog-container .blog-items .blog-text {
+    height: 225px;
+    width: 490px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: #e8dfca;
+}
+
+.blog-container .blog-items .blog-text a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 400ms;
+    margin-top: 10px;
+}
+
+.blog-container .blog-items .blog-text a:hover {
+    color: rgb(0, 147, 167);
+}
+
+.blog-container .blog-items .blog-img {
+    height: 275px;
+    width: 490px;
+    max-width: 100%;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.blog-container .blog-items .blog-img .center-text {
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 40px);
+    transform: translate(-50%, -50%);
+    display: none;
+    transition: 400ms;
+}
+
+.blog-container .blog-items .blog-img .center-text a {
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+
+.blog-container .blog-items .blog-img a {
+    height: 0;
+    display: block;
+}
+
+.blog-container .blog-items .blog-img a img {
+    height: 275px;
+    width: 490px;
+    max-width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 0px 0px;
+    object-position: 0px 0px;
+    transition: 400ms;
+}
+
+.blog-container .blog-items .blog-img:hover img {
+    opacity: 0.5;
+    filter: blur(3px);
+}
+
+.blog-container .blog-items .blog-img:hover .center-text {
+    display: inline;
+}
+
+.img-holder {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-img {
+    position: fixed;
+    top: 0;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+#blog-overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#blog-overview .blog-background-logo {
+    margin-top: 35px;
+    opacity: 0.1;
+    width: 200px;
+    height: 200px;
+}
+
+#blog-overview h1 {
+    color: rgb(13, 36, 102);
+    font-weight: 500;
+    font-size: 3rem;
+    margin-top: -110px;
+    margin-bottom: 20px;
+}
+
+#blog-text-body {
+    background-color: #fff;
+}
+
+#blog-text-body .blog-text-body-content {
+    margin: 0px 15vw;
+}
+
+#blog-text-body .blog-text-body-content p {
+    font-size: 20px;
+    padding: 10px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+}
+
+#blog-text-body .blog-text-body-content h2 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #1a3d64;
+}
+
+#blog-text-body .blog-text-body-content .social-media-icons {
+    display: flex;
+    margin-top: 0px;
+}
+
+#blog-text-body .blog-text-body-content .social-media-icons img {
+    width: 40px;
+    opacity: 0.6;
+    margin-top: 20px;
+}
+
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.aboutus-site-container {
+    width: 100%;
+    height: 2520px;
+    background-color: #f5efe6;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    position: relative;
+
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-container .bibleverse {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    gap: 100px;
+}
+
+.about-container .bibleverse article {
+    color: #1b4a85;
+    border: 1px solid #1b4a85;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    font-size: 1.9rem;
+    height: 150px;
+    width: 420px;
+    padding: 10px;
+}
+
+.about-container .bibleverse aside img {
+    height: 380px;
+    width: 300px;
+    border-radius: 300px;
+    object-fit: cover;
+    position: relative;
+    z-index: 3;
+    opacity: 0.7;
+}
+
+.triangle {
+    height: 400px;
+    width: 100%;
+    background-color: #cbdceb;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -200px;
+}
+
+
+/*animations*/
+.right-anim-class {
+    animation: rightAnim 1s forwards ease-in-out;
+    position: relative;
+}
+
+.left-anim-class {
+    animation: leftAnim 1s forwards ease-in-out;
+    position: relative;
+}
+
+.bottom-anim-class {
+    animation: bottomAnim 1s forwards ease-in-out;
+    position: relative;
+}
+
+.top-anim-class {
+    animation: topAnim 1s forwards ease-in-out;
+    position: relative;
+}
+
+.blend-in-class {
+    animation: blendIn 0.6s forwards ease-in-out;
+}
+
+.blend-out-class {
+    animation: blendOut 150ms forwards ease-in-out;
+}
+
+.blend-half-in-class {
+    animation: blendHalfIn 150ms forwards ease-in-out;
+}
+
+@media (min-width: 1050px) {
+    .theme-container {
+        gap: 80px;
+    }
+
+    #blog-text-body .blog-text-body-content {
+        margin: 0px 25vw;
+    }
+
+    textarea:focus {
+        width: 55%;
+    }
+
+    input:focus {
+        width: 55%;
+    }
+
+    header .bible-verse p {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 650px) {
+    header .bible-verse p {
+        font-size: 5vw;
+    }
+}
+
+@keyframes topAnim {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes bottomAnim {
+    0% {
+        top: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes leftAnim {
+    0% {
+        left: -50px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes rightAnim {
+    0% {
+        left: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes fullLeftAnim {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes fullRightAnim {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes blendIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blendOut {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blendHalfIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes leftAnim {
+    0% {
+        left: -50px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes markTextAnim {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,22 +9,30 @@
       content="Piszemy artykuły na temat izraela, biblii i różne świadectwa."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/media/style.css" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link
       rel="shortcut icon"
-      href="/media/images/logo.svg"
+      href="{% static 'images/logo.svg' %}"
       type="image/x-icon"
     />
     <title>Po Izraelsku</title>
-    <script src="/media/script.js" defer></script>
-    <script src="/media/animations.js" defer></script>
+    <script defer>
+      const slideShowImgs = [
+        "{% static 'images/background-img.jpg' %}",
+        "{% static 'images/slideshow-img3.jpg' %}",
+        "{% static 'images/slideshow-img1.jpg' %}",
+        "{% static 'images/slideshow-img2.jpg' %}",
+      ];
+    </script>
+    <script src="{% static 'script.js' %}" defer></script>
+    <script src="{% static 'animations.js' %}" defer></script>
   </head>
   <body>
     {% include "navbar.html" %}
 
     <header>
       <img
-        src="/media/images/background-img.jpg"
+        src="{% static 'images/background-img.jpg' %}"
         loading="eager"
         class="slide-img"
         fetchpriority="high"
@@ -32,7 +42,7 @@
         style="left: 60px"
         class="arrows"
         onclick="changeBibleVerseBackward()"
-        src="/media/images/arrow-left.svg"
+        src="{% static 'images/arrow-left.svg' %}"
         alt=""
       />
       <div class="bible-verse"></div>
@@ -40,7 +50,7 @@
         style="right: 0px"
         class="arrows"
         onclick="changeBibleVerseForward()"
-        src="/media/images/arrow-right.svg"
+        src="{% static 'images/arrow-right.svg' %}"
         alt=""
       />
     </header>
@@ -65,13 +75,16 @@
           <img
             class="about-img"
             loading="lazy"
-            src="/media/images/background-img.jpg"
+            src="{% static 'images/background-img.jpg' %}"
             alt="Jesteśmy Jaqueline i Robin."
           />
         </div>
       </div>
 
-      <div class="triangle" style="clip-path: polygon(100% 50%, 0% 100%, 100% 100%);"></div>
+      <div
+        class="triangle"
+        style="clip-path: polygon(100% 50%, 0% 100%, 100% 100%)"
+      ></div>
     </section>
 
     <section id="themes">
@@ -83,7 +96,7 @@
         >
           <img
             loading="lazy"
-            src="/media/images/theme-pic-1.jpg"
+            src="{% static 'images/theme-pic-1.jpg' %}"
             alt="Piszemy o rzeczach związanych z izraelem"
           />
           <div>
@@ -95,7 +108,7 @@
         <a href="{% url 'blog_overview_bible' %}" class="theme-pic bottom-anim">
           <img
             loading="lazy"
-            src="/media/images/theme-pic-2.jpg"
+            src="{% static 'images/theme-pic-2.jpg' %}"
             alt="Piszemy o rzeczach związanych z biblią"
           />
           <div>BIBLIA</div>
@@ -106,7 +119,7 @@
         >
           <img
             loading="lazy"
-            src="/media/images/theme-pic-3.jpg"
+            src="{% static 'images/theme-pic-3.jpg' %}"
             alt="Piszemy o świadectwach"
           />
           <div style="font-size: 20px">
@@ -124,7 +137,7 @@
           alt=""
           loading="lazy"
           class="background-img"
-          src="/media/images/background-img.jpg"
+          src="{% static 'images/background-img.jpg' %}"
         />
       </div>
 

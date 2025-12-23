@@ -1,16 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/media/style.css" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link
       rel="shortcut icon"
-      href="/media/images/logo.svg"
+      href="{% static 'images/logo.svg' %}"
       type="image/x-icon"
     />
-    <script src="/media/animations.js" defer></script>
-    <title>Po Izraelsku - Blog</title>
+    <script src="{% static 'animations.js' %}" defer></script>
+    <title>Po Izraelsku - O NAS</title>
   </head>
   <body>
     {% include "navbar.html" %}
@@ -19,7 +21,7 @@
       style="background-color: rgba(0, 0, 0, 0.5); justify-content: center"
     >
       <div class="img-holder">
-        <img class="background-img" src="/media/images/background-img.jpg" />
+        <img class="background-img" src="{% static 'images/background-img.jpg' %}" />
       </div>
     </header>
 
@@ -31,7 +33,7 @@
           </article>
 
           <aside class="">
-            <img src="/media/images/about3.jpeg" />
+            <img src="{% static 'images/about3.jpeg' %}" />
           </aside>
         </div>
 
@@ -53,7 +55,7 @@
             "
           >
             <aside class="">
-              <img src="/media/images/about2.jpeg" />
+              <img src="{% static 'images/about2.jpeg' %}" />
             </aside>
             <div style="width: 350px" class="right-anim">
               <h1>Czym jest Po Izraelsku?</h1>
@@ -104,7 +106,7 @@
               </p>
             </div>
             <aside class="">
-              <img src="/media/images/theme-pic-1.jpg" />
+              <img src="{% static 'images/theme-pic-1.jpg' %}" />
             </aside>
           </div>
         </div>
@@ -127,7 +129,7 @@
             "
           >
             <aside class="">
-              <img src="/media/images/about1.jpeg" />
+              <img src="{% static 'images/about1.jpeg' %}" />
             </aside>
             <div style="width: 350px" class="right-anim">
               <h1>Biblia i język hebrajski</h1>

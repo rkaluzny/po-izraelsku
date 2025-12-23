@@ -1,14 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/media/style.css" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link
       rel="shortcut icon"
-      href="/media/images/logo.svg"
+      href="{% static 'images/logo.svg' %}"
       type="image/x-icon"
     />
+    <script src="{% static 'animations.js' %}" defer></script>
     <title>{{articel.title}}</title>
   </head>
   <body>
@@ -36,17 +39,19 @@
           <a
             href="https://www.facebook.com/profile.php?id=61578940545874"
             target="_blank"
-            ><img loading="lazy" src="/media/images/facebook.png" alt="" /></a
+            ><img loading="lazy" src="{% static 'images/facebook.png' %}" alt="" /></a
           ><a href="https://www.instagram.com/poizraelsku/" target="_blank"
-            ><img loading="lazy" src="/media/images/instagram.png" alt=""
+            ><img loading="lazy" src="{% static 'images/instagram.png' %}" alt=""
           /></a>
         </div>
 
-        <p style="opacity: 0.7; font-size: 19px; padding: 0px;">Autor: {{ articel.author }}</p>
+        <p style="opacity: 0.7; font-size: 19px; padding: 0px">
+          Autor: {{ articel.author }}
+        </p>
 
         {{ articel.text|safe|linebreaks }}
 
-        <p style="opacity: 0.7;">{{ hitcount.total_hits }}</p>
+        <p style="opacity: 0.7">{{ hitcount.total_hits }}</p>
 
         <h2 style="margin: auto; padding: 40px" class="blend-in">
           Więcej wpisów
@@ -77,7 +82,5 @@
         {% endfor %}
       </div>
     </section>
-
-    <script src="/media/animations.js"></script>
   </body>
 </html>
