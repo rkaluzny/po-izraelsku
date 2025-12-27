@@ -1,7 +1,13 @@
 @font-face {
     font-family: "IM Fell English SC";
     font-display: swap;
-    src: url("/media/IM_Fell_English_SC/IMFellEnglishSC-Regular.ttf");
+    src: url("/static/IM_Fell_English_SC/IMFellEnglishSC-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Domine";
+    font-display: swap;
+    src: url("/static/domine/Domine-VariableFont_wght.ttf");
 }
 
 html {
@@ -97,7 +103,6 @@ h1 {
 * {
     margin: 0px;
     padding: 0px;
-    font-family: "IM Fell English SC";
 }
 
 body {
@@ -510,7 +515,7 @@ header .blog-title p {
 #blog-text-body .blog-text-body-content p {
     font-size: 20px;
     padding: 10px;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Domine" !important;
     text-align: justify;
 }
 
@@ -548,6 +553,7 @@ header .blog-title p {
     flex-direction: column;
     z-index: 0;
     position: relative;
+    font-family: "Domine";
 
 }
 
@@ -582,6 +588,7 @@ header .blog-title p {
     height: 150px;
     width: 420px;
     padding: 10px;
+    font-family: "Domine";
 }
 
 .about-container .bibleverse aside img {

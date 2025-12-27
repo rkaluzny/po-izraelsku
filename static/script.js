@@ -12,13 +12,21 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+document.addEventListener("keyup", (e) => {
+  if (e.code === "ArrowRight") {
+    changeBibleVerseForward();
+  } else if (e.code === "ArrowLeft") {
+    changeBibleVerseBackward();
+  }
+});
+
 let index = 0;
 
 const bibleVerses = [
-  `<p style=''><mark>Ze względu na Syjon nie będę milczał</mark></p> <p style=''> i ze względu na Jerozolimę nie spocznę</p>`,
-  `<p style='font-size: 3vw;'>Nie możemy milczeć wobec antyseminyzmu</p> <p><mark>Stańmy po stronie prawdy</mark></p>`,
-  `<p><mark>Wy, którzy wspominacie PANA, nie milczcie;</mark> I nie dajcie mu odpoczynku, dopóki nie utwierdzi i dopóki nie uczyni Jerozolimy chwałą na ziemi.</p>`,
-  `<p>I tak cały Izrael będzie zbawiony, jak jest napisane: Przyjdzie z Syjonu wybawiciel i odwróci bezbożność od Jakuba.</p>`,
+  `<p style='animation: bottomAnim 0.6s ease-in; position: relative;'><mark>Ze względu na Syjon nie będę milczał</mark></p><p style='animation: bottomAnim 0.6s ease-in; position: relative;'> i ze względu na Jerozolimę nie spocznę</p>`,
+  `<p style='font-size: 3vw; animation: bottomAnim 0.6s ease-in; position: relative;'>Nie możemy milczeć wobec antyseminyzmu</p> <p style='animation: bottomAnim 0.6s ease-in; position: relative;'><mark>Stańmy po stronie prawdy</mark></p>`,
+  `<p style='animation: bottomAnim 0.6s ease-in; position: relative;'><mark>Wy, którzy wspominacie PANA, nie milczcie;</mark> I nie dajcie mu odpoczynku, dopóki nie utwierdzi i dopóki nie uczyni Jerozolimy chwałą na ziemi.</p>`,
+  `<p style='animation: bottomAnim 0.6s ease-in; position: relative;'>I tak cały Izrael będzie zbawiony, jak jest napisane: Przyjdzie z Syjonu wybawiciel i odwróci bezbożność od Jakuba.</p>`,
 ];
 
 let bibleVerseContainer = document.querySelector(".bible-verse");
