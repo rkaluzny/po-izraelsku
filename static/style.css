@@ -200,7 +200,7 @@ header .bible-verse {
     transform: translate(-50%, -50%);
 }
 
-header .bible-verse mark::before {
+/*header .bible-verse mark::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -211,7 +211,7 @@ header .bible-verse mark::before {
     background-color: #46362D;
     z-index: -1;
     animation: markTextAnim 0.7s forwards ease-in;
-}
+}*/
 
 header .bible-verse mark {
     position: relative;

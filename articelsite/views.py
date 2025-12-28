@@ -49,20 +49,23 @@ def blogs(request, slug):
 
 def contact(request):
     if request.method == "POST":
-        user_email = request.POST.get("email")
-        message = request.POST.get("message")
-        name = request.POST.get("name")
+        if request.POST.get("email") == "" or request.POST.get("message") == "" or request.POST.get("name") == "":
+            return render(request, 'contact.html')
+        else:
+            user_email = request.POST.get("email")
+            message = request.POST.get("message")
+            name = request.POST.get("name")
 
-        send_mail(
-            subject="Poizraelsku kontakt",
-            message=f"Person's E-Mail: {user_email}\n\nHis name: {name}\n\nMessage:\n{message}",
-            from_email=f"{user_email}",
-            recipient_list=["robin.jerome.kaluzny@gmail.com", "jaquelinekaluzny.ch@gmail.com"],
-            fail_silently=False,
-        )
-        htmlResponse = '<h1>E-Mail został wysłany do Po Izraelsku Team!</h1> <a href="../contact/">Spowrotem ←</a>'
-    
-        return HttpResponse(htmlResponse)
+            send_mail(
+                subject="Poizraelsku kontakt",
+                message=f"Person's E-Mail: {user_email}\n\nHis name: {name}\n\nMessage:\n{message}",
+                from_email=f"{user_email}",
+                recipient_list=["robin.jerome.kaluzny@gmail.com", "jaquelinekaluzny.ch@gmail.com"],
+                fail_silently=False,
+            )
+            htmlResponse = '<h1>E-Mail został wysłany do Po Izraelsku Team!</h1> <a href="../contact/">Spowrotem ←</a>'
+        
+            return HttpResponse(htmlResponse)
     return render(request, 'contact.html')
 
 def aboutUs(request):
